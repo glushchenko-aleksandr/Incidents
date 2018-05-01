@@ -1,0 +1,71 @@
+<div class="modal fade {{$ctrl.show}}" style="display: block;">
+    <div class="modal-dialog" style="min-width: 800px;">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div style="width: 100%; ">
+                    <h6 class="modal-title">Incident</h6>
+                    <h4 class="modal-title">{{$ctrl.incident.number}}</h4>
+                </div>
+                <button type="button" class="close" ng-click="$ctrl.close()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label style="font-weight: 500;">Description</label>
+                                <p style="width: 100%;">
+                                    {{$ctrl.incident.description}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label style="font-weight: 500;">Caller</label>
+                                        <p>{{$ctrl.incident.caller_id.display_value}}</p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label style="font-weight: 500;">Opened</label>
+                                        <p>{{$ctrl.incident.opened_at}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label style="font-weight: 500;">Urgency</label>
+                                        <div style="width: 100%;">
+                                            <span class="badge badge-pill badge-warning" style="padding: .5em 0.8em;">{{$ctrl.incident.urgency}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label style="font-weight: 500;">State</label>
+                                        <div style="width: 100%;">
+                                            <span class="badge badge-pill badge-info" style="padding: .5em 0.8em;">{{$ctrl.incident.state}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="$ctrl.close()">Resolve</button>
+            </div>
+
+        </div>
+    </div>
+</div>

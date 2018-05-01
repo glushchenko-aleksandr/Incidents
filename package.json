@@ -2,10 +2,16 @@
   "name": "incidents",
   "version": "1.0.0",
   "description": "MobiChord test project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "server.js",
   "author": "Oleksandr Glushchenko",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "less": "^3.0.2",
+    "nodemon": "^1.17.3",
+    "npm-watch": "^0.3.0"
+  }
 }

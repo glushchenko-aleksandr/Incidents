@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-sm">
+        <state-chart-component></state-chart-component>
+    </div>
+    <div class="col-sm">
+        <opened-at-chart-component></opened-at-chart-component>
+    </div>
+</div>
+<hr class="my-4">
+<form>
+    <div class="row">
+        <div class="col">
+                <div class="form-group">
+                        <label for="formGroupExampleInput">&nbsp;</label>
+                        <input type="text" class="form-control" placeholder="Search text" aria-label="Search text" aria-describedby="basic-addon1">
+                    </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="formGroupExampleInput">State</label>
+                <select class="form-control" ng-options="state as state.name for state in $ctrl.states" ng-model="$ctrl.selectedState" ng-change="$ctrl.onChangeState()"></select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Urgency</label>
+                <select class="form-control" ng-options="urgency as urgency.name for urgency in $ctrl.urgencys" ng-model="$ctrl.selectedUrgency"
+                    ng-change="$ctrl.onChangeUrgency()"></select>
+            </div>
+        </div>
+    </div>
+</form>
+<div style="min-height: 1000px">
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Incident Number</th>
+            <th scope="col">Urgency</th>
+            <th scope="col">Caller</th>
+            <th scope="col">Opened</th>
+            <th scope="col">State</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="incident in $ctrl.incidents">
+            <th scope="row">
+                <a ui-sref="main.incidents.dialog({ sys_id: incident.sys_id })">{{ incident.number }}</a>
+            </th>
+            <td>{{ incident.urgency }}</td>
+            <td>{{ incident.caller_id.display_value }}</td>
+            <td>{{ incident.opened_at }}</td>
+            <td>{{ incident.state }}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<ui-view></ui-view>
