@@ -14,7 +14,7 @@ cd Incidents
 ```
 
 Open config.js in your favourite text editor. :)
-Change your-servicenow-host and your-servicenow-password placeholders to correct ones. If you don't have hostname and password you can navigate to (https://developer.servicenow.com) and request personal developer instance. You can use instance host and password to test project.
+Change your-servicenow-host and your-servicenow-password placeholders to correct ones. If you don't have hostname and password you can navigate to (https://developer.servicenow.com) and request personal developer instance. You can use instance host and password to run project.
 
 ```bash
 npm install
