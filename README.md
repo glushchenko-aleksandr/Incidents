@@ -10,8 +10,15 @@ To setup
 
 ```bash
 git clone https://github.com/glushchenko-aleksandr/Incidents
-npm install
-node server.js
+cd Incidents
 ```
 
-navigate to http://localhost:8000
+Open config.js in your favourite text editor. :)
+Change your-servicenow-host and your-servicenow-password placeholders to correct ones. If you don't have hostname and password you can navigate to (https://developer.servicenow.com) and request personal developer instance. You can use instance host and password to test project.
+
+```bash
+npm install
+npm start
+```
+
+Open in browser to http://localhost:8000
