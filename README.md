@@ -22,3 +22,21 @@ npm start
 ```
 
 Open in browser to http://localhost:8000
+
+## TODO list
+
+- Setup client files packging
+- Setup LESS or SASS builds
+- Implement unit tests
+- Setup karma for running tests
+
+- Implement incidents sorting
+- Implement incidents full text search
+- Implement incidents paging or infinite scroll
+- Add localization to the project
+- Implement export
+- Implement resolve
+
+## License
+
+Incidents is available under the [MIT license](http://opensource.org/licenses/MIT).
