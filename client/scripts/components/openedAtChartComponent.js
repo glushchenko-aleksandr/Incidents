@@ -3,38 +3,15 @@ app.component('openedAtChartComponent', {
     controller: ['incidentsService', function (incidentsService) {
         var vm = this;
 
-        var groupBy = function (arr, prop) {
-            return arr.reduce(function (groups, obj) {
-                groups[obj[prop]] = groups[obj[prop]] || 0;
-                groups[obj[prop]]++;
-                return groups;
-            }, {});
-        };
-
-        var getFormatedDate = function(dateString) {
-            var date = new Date(dateString);
-            var year = date.getFullYear().toString();
-            var month = (date.getMonth() + 1).toString();
-            month = month.length == 1 ? '0' + month : month;
-            return year + '-' + month;
-        }; 
-
         vm.$onInit = function () {
 
             incidentsService
                 .groupByOpenedAt()
                 .then(function (response) {
-                    var result = response.data.result
-                        .map(function (item) { 
-                            return {
-                                opened_at: getFormatedDate(item.opened_at)
-                            };
-                        });
-                    result = groupBy(result, 'opened_at');
-
-                    var labels = Object.keys(result);
-                    labels.sort();
-                    var values = labels.map(function (item) { return result[item] });;
+                    var values = response.data
+                        .map(function (item) { return item.value });
+                    var labels = response.data
+                        .map(function (item) { return item.label });
 
                     var data = {
                         datasets: [{
@@ -64,13 +41,21 @@ app.component('openedAtChartComponent', {
                         type: 'line',
                         data: data,
                         options: {
+                            title: {
+                                display: true,
+                                text: 'Incidents Over Time',
+                                fontSize: 16
+                            },
                             layout: {
                                 padding: {
-                                    left: 20,
-                                    right: 20,
-                                    top: 50,
-                                    bottom: 50
+                                    left: 10,
+                                    right: 10,
+                                    top: 10,
+                                    bottom: 10
                                 }
+                            },
+                            legend: {
+                                display: false
                             }
                         }
                     });

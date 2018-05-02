@@ -1,0 +1,23 @@
+.incident.modal {
+    display: block;
+}
+
+.incident .modal-body .form-group label {
+    font-weight: 500;
+}
+
+.incident .modal-body .form-group .badge {
+    padding: .5em 0.8em;
+}
+
+.incident .modal-body .form-group .form-readonly-control, 
+.incident .modal-header .modal-title-group {
+    width: 100%;
+}
+
+@media (min-width: 757px) {
+    .incident .modal-dialog {
+        max-width: 800px;
+        margin: 1.75rem auto;
+    }
+}

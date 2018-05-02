@@ -7,10 +7,10 @@ app.component('stateChartComponent', {
             incidentsService
                 .groupByState()
                 .then(function (response) {
-                    var values = response.data.result
-                        .map(function (item) { return item.stats.count });
-                    var labels = response.data.result
-                        .map(function (item) { return item.groupby_fields[0].value });
+                    var values = response.data
+                        .map(function (item) { return item.value });
+                    var labels = response.data
+                        .map(function (item) { return item.label });
 
                     var data = {
                         datasets: [{
@@ -40,12 +40,23 @@ app.component('stateChartComponent', {
                         type: 'doughnut',
                         data: data,
                         options: {
+                            title: {
+                                display: true,
+                                text: 'Incidents By State',
+                                fontSize: 16
+                            },
                             layout: {
                                 padding: {
-                                    left: 20,
-                                    right: 20,
-                                    top: 50,
-                                    bottom: 50
+                                    left: 10,
+                                    right: 10,
+                                    top: 10,
+                                    bottom: 10
+                                }
+                            },
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    fontSize: 14
                                 }
                             }
                         }

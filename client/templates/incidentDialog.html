@@ -1,57 +1,55 @@
-<div class="modal fade {{$ctrl.show}}" style="display: block;">
-    <div class="modal-dialog" style="min-width: 800px;">
+<div class="incident modal fade {{$ctrl.show}}">
+    <div class="modal-dialog">
         <div class="modal-content">
 
-            <!-- Modal Header -->
             <div class="modal-header">
-                <div style="width: 100%; ">
+                <div class="modal-title-group">
                     <h6 class="modal-title">Incident</h6>
                     <h4 class="modal-title">{{$ctrl.incident.number}}</h4>
                 </div>
                 <button type="button" class="close" ng-click="$ctrl.close()">&times;</button>
             </div>
 
-            <!-- Modal body -->
             <div class="modal-body">
                 <form>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label style="font-weight: 500;">Description</label>
-                                <p style="width: 100%;">
+                                <label>Description</label>
+                                <p class="form-readonly-control">
                                     {{$ctrl.incident.description}}
                                 </p>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-md-6">
                             <div class="row">
-                                <div class="col">
+                                <div class="col-6">
                                     <div class="form-group">
-                                        <label style="font-weight: 500;">Caller</label>
+                                        <label>Caller</label>
                                         <p>{{$ctrl.incident.caller_id.display_value}}</p>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-6">
                                     <div class="form-group">
-                                        <label style="font-weight: 500;">Opened</label>
-                                        <p>{{$ctrl.incident.opened_at}}</p>
+                                        <label>Opened</label>
+                                        <p>{{$ctrl.incident.opened_at | shortDate}}</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
+                                <div class="col-6">
                                     <div class="form-group">
-                                        <label style="font-weight: 500;">Urgency</label>
-                                        <div style="width: 100%;">
-                                            <span class="badge badge-pill badge-warning" style="padding: .5em 0.8em;">{{$ctrl.incident.urgency}}</span>
+                                        <label>Urgency</label>
+                                        <div class="form-readonly-control">
+                                            <span class="badge badge-pill badge-warning">{{$ctrl.incident.urgency}}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-6">
                                     <div class="form-group">
-                                        <label style="font-weight: 500;">State</label>
-                                        <div style="width: 100%;">
-                                            <span class="badge badge-pill badge-info" style="padding: .5em 0.8em;">{{$ctrl.incident.state}}</span>
+                                        <label>State</label>
+                                        <div class="form-readonly-control">
+                                            <span class="badge badge-pill badge-info">{{$ctrl.incident.state}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +59,6 @@
                 </form>
             </div>
 
-            <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="$ctrl.close()">Resolve</button>
             </div>
